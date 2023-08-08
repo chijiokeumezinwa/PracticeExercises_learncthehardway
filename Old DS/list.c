@@ -10,6 +10,13 @@ struct node{
 struct node *head = NULL;
 struct node *current = NULL;
 
+struct node *createNode(int value){
+    struct node *newNode = (struct node*) malloc(sizeof(struct node));
+    newNode->data=value;
+    newNode->next=NULL;
+    return newNode;
+}
+
 //display
 void printList(struct node *p){
     printf("\n[");
@@ -23,47 +30,41 @@ void printList(struct node *p){
 }
 
 //insertatbeginning
-void insertatbegin(struct node **head_ref, int data){
+//passing pointer to pointer parameter allows the changing of 
+//the head pointer directly instead of returning the new one
+void insertatbegin(struct node **head, int value){
     //allocate memory to node
-    struct node * new_node = (struct node*) malloc(sizeof(struct node));
-
-    //insert the data
-    new_node->data = new_data;
-    new_node->next =(*head_ref);
-
+   struct node *newNode = createNode(value);
+   newNode->next = *head; 
     //move head to new node
-    (*head_ref) = new_node;
+    (*head) = newNode;
 }
 
 void insertafter(struct Node * prev_node, int data){
+    //check to see if prev_node is null
     if(prev_node == NULL){
         printf("The given previous node cannot be null");
         return;
     }
 
-    struct node * new_node = (struct node*) malloc(sizeof(struct node));
-    new_node->data = data;
+    struct node *newNode = createNode(value);
     new_node->next = prev_node->next;
     prev_node->next = new_node;
 }
 
-void insertatend(struct node** head_ref, int data){
-    struct node *new_node =(struct node*) malloc(sizeof(struct node));
-    stuct node *last=*head_ref;
-
-    new_node->data = data;
-    new_node->next =NULL;
-
-    if(*head_ref == NULL){
-        *head_ref = new_node;
+void insertatend(struct node** head, int value){
+    struct node *newNode = createNode(value);
+    
+    if(*head == NULL){
+        *head= newNode;
         return;
     }
 
-    while(last->next != NULL){
-        last = last->next;
+    struct node *current=*head;
+    while(current->next != NULL){
+        current = current->next;
     }
-    last->next = new_node;
-    return;
+    current->next = newNode;
 }
 
 void deletenode(struct node** head_ref, int key){
