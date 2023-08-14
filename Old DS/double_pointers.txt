@@ -1,0 +1,11 @@
+In C or C++ Programming Language, it is known that pointers hold the address of the variables or any memory location. 
+If pointers are pointed to the memory location, it can be used to change the value of the variable.
+
+As for functions, any pointer can be passed by itself, or by the address of the pointer. 
+But If the memory location of the pointer is to be changed permanently out of the function, 
+it must be captured with a reference or double-pointer within the function i.e., with the assumption any memory 
+is created inside the local function.
+
+Afterward, it is pointed to the pointer captured by the function without any reference or any double-pointer.
+ In this situation, there is no change inside the main function because it was not captured by reference or a 
+ double-pointer inside the function definition.

@@ -1,0 +1,5 @@
+when deleting a node from binary search tree,
+
+the children of the node to be deleted are not lost 
+
+since they will be properly handled during the recursive deletion step

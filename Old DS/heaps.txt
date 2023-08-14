@@ -1,0 +1,33 @@
+what are heaps?
+
+a special type of binary tree based data structure that has property called heap property
+
+heap property is key concpety in heaps that in max heaps for every node the value of that
+node is >= to the values of its children and in min heaps for every node the value of that
+node <= to the values of its childrens.
+
+heaps are used for efficent operations like finding minimum or maximum element.
+
+used to implement priority queues and heapsort
+
+there are two types of heaps
+    max heaps and min heaps
+
+max heaps: for every node the value of that node is >= to the values of its children
+
+min heaps: for every node the value of that node <= to the values of its childrens.
+
+how to represent a heap? by arrays. each element in array corresponds to a node in binary tree. 
+
+if an element is at index 'i' in array, its left child is at index '2*i + 1' and its right
+child is at index '2*i +2'
+
+how to build a heap? with array of values, you can construct a heap from it, which is called
+heapifying
+
+heapifying: start from last non leaf node 'usually (n/2)-1, where n is num of elements' and move upwards,
+ensuring heap property is satisfied at each step
+
+main op's: insertion, extraction, peeking, heapify
+
+real world uses: scheduling tasks with different priorities, graph algorithms like dijkstra's algo, and heapsort.

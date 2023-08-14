@@ -7,12 +7,14 @@ struct node{
     struct node *next;
 };
 
-struct node *head = NULL;
-struct node *current = NULL;
-
-struct node *createNode(int value){
+struct node *createNode(int data){
     struct node *newNode = (struct node*) malloc(sizeof(struct node));
-    newNode->data=value;
+
+    if(newNode == NULL){
+        perror("Memory allocation failed");
+        exit(EXIT_FAILURE);
+    }
+    newNode->data=data;
     newNode->next=NULL;
     return newNode;
 }
@@ -249,3 +251,21 @@ void freeList(struct Node** head) {
     *head = NULL;
 }
 
+int main() {
+    struct Node* head = NULL;
+
+    insertatbegin(&head, 10);
+    insertatend(&head, 20);
+    insertatend(&head, 30);
+    insertatbegin(&head, 5);
+
+    displayList(head);
+
+    deleteNode(&head, 20);
+
+    displayList(head);
+
+    freeList(&head);
+
+    return 0;
+}

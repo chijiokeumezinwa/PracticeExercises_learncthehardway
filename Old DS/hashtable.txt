@@ -1,0 +1,27 @@
+A hash table is data structure that allows storage and quick retrieval of values like a dictionary
+
+
+Key concept is hashing, converting a key into an index where value is stored.
+
+A hash table consists of:
+array
+hash function
+
+
+hashing step by step:
+    -you have a key ie a word 
+    -run key through hash function
+    -hash function gives you an index in array
+    -store value at that index
+
+collisions occurs when different keys might map to same index due to limited number of slots
+
+We need collision handling strategies.
+
+Two common strategies are: 
+Chaining and open addressing
+
+op's of hash table: insertion, search, deletion
+
+hash tables have practical uses such as databases, caches, compilers, spell checkers etc.
+provides fast data retrieval making operations efficent even for large datasets.
